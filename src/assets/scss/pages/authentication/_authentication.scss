@@ -1,0 +1,30 @@
+.auth-wrapper {
+    min-height: 100vh;
+    position: relative;
+    background: url("../../../images/signin-background.jpg") no-repeat center center;
+
+    .auth-box {
+        max-width: 400px;
+        padding: 20px;
+        background: white;
+        box-shadow: 1px 0px 20px rgba(0, 0, 0, 0.08);
+        border-radius: 5px;
+
+        .auth-footer {
+            button {
+                width: 100%;
+                color: white;
+                background-color: #0ca78a;
+            }
+
+            a {
+                color: #00c39f;
+
+                &:hover,
+                &:active {
+                    color: #0ca78a;
+                }
+            }
+        }
+    }
+}
