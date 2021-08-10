@@ -1,0 +1,95 @@
+<div class="auth-wrapper d-flex no-block justify-content-center align-items-center">
+    <div class="auth-box m-3 m-md-0">
+        <div class="auth-header">
+            <div class="text-center mb-3">
+                <h3>Criar Conta</h3>
+            </div>
+        </div>
+
+        <form [formGroup]="signUpForm" (ngSubmit)="onSubmit()">
+            <div class="auth-body mt-4 mb-4">
+
+                <div id = "formSignUp">
+                    <div class="input-group mb-2">
+                        <span class="input-group-text"><i class="fas fa-user"></i></span>
+                        <input
+                            type="username"
+                            class="form-control"
+                            id="username"
+                            formControlName="username"
+                            placeholder="Nome"
+                            required
+                        />
+                    </div>
+
+                    <div class="input-group mb-2">
+                        <span class="input-group-text"><i class="far fa-envelope"></i></span>
+                        <input
+                            type="email"
+                            class="form-control"
+                            id="email"
+                            formControlName="email"
+                            placeholder="Email"
+                            required
+                        />
+                    </div>
+
+                    <div class="input-group">
+                        <span class="input-group-text"><i class="fas fa-unlock"></i></span>
+                        <input
+                            type="password"
+                            class="form-control"
+                            id="password"
+                            formControlName="password"
+                            placeholder="Senha"
+                            required
+                        />
+                    </div>
+
+                    <div class="pt-2 confirmPassword">
+                        <div class="input-group">
+                            <span class="input-group-text"><i class="fas fa-unlock"></i></span>
+                            <input
+                                type="password"
+                                class="form-control"
+                                id="confirmPassword"
+                                formControlName="confirmPassword"
+                                placeholder="Confirme sua senha"
+                                required
+                            />
+                        </div>
+                    </div>
+
+                    <div class="pt-2 input-group-select">
+                        <select class="form-select"
+                        formControlName="role">
+
+                            <option value="" selected >Selecione seu cargo</option>
+                            <option value="professor">Professor(a)</option>
+                            <option value="student">Aluno(a)</option>
+
+                            </select>
+                    </div>
+                </div>
+            </div>
+
+            <div class="auth-footer text-center">
+                <div class="form-group mb-2">
+                    <button type="submit" class="btn" [disabled]="signUpForm.invalid || isLoading">
+                        <div *ngIf="isLoading" class="spinner-border text-light" role="status">
+                            <span class="visually-hidden">Loading...</span>
+                        </div>
+
+                        {{ isLoading ? '' : 'CRIAR' }}
+                    </button>
+                </div>
+
+                <div class="form-group">
+                    <span class="pe-1">Tem conta?</span>
+                    <a class="text-decoration-none" [routerLink]="['/signin']"><b>Entrar</b></a>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+

@@ -2,14 +2,14 @@
     <div class="auth-box m-3 m-md-0">
         <div class="auth-header">
             <div class="text-center mb-3">
-                <h3>Sign In</h3>
+                <h3>ClassHome</h3>
             </div>
         </div>
 
         <form [formGroup]="signInForm" (ngSubmit)="onSubmit()">
             <div class="auth-body mt-4 mb-4">
                 <div class="input-group mb-2">
-                    <span class="input-group-text"><i class="fas fa-user"></i></span>
+                    <span class="input-group-text"><i class="far fa-envelope"></i></span>
                     <input
                         type="email"
                         class="form-control"
@@ -54,7 +54,7 @@
 
                 <div class="form-group">
                     <span class="pe-1">Não tem conta?</span>
-                    <a class="text-decoration-none" [routerLink]="['/register']"><b>Criar</b></a>
+                    <a class="text-decoration-none" [routerLink]="['/signup']"><b>Criar</b></a>
                 </div>
             </div>
         </form>

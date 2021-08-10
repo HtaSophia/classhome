@@ -5,6 +5,7 @@ import { tap } from 'rxjs/operators';
 import { AuthService } from '../auth/auth.service';
 import { LoginRequest } from '../auth/types/login-request';
 import { LoginResponse } from '../auth/types/login-response';
+import { SignUpRequest } from '../auth/types/signup-request';
 import { RequestApi } from './request.api';
 
 @Injectable({ providedIn: 'root' })
@@ -17,6 +18,12 @@ export class AuthApi extends RequestApi {
 
     public signin(payload: LoginRequest): Observable<LoginResponse> {
         return this.post<LoginRequest, LoginResponse>(`${this.endpoint}/signin`, payload).pipe(
+            tap((response) => this.authService.storeUser(response)),
+        );
+    }
+
+    public signup(account: SignUpRequest): Observable<LoginResponse> {
+        return this.post<SignUpRequest, LoginResponse>(`${this.endpoint}/signup`, account).pipe(
             tap((response) => this.authService.storeUser(response)),
         );
     }
