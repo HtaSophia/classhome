@@ -32,8 +32,6 @@ export class SignUpComponent implements OnInit, OnDestroy {
 
     public onSubmit(): void {
         this.isLoading = true;
-        // console.log(this.signUpForm.value);
-
         this.subscriptions.sink = this.accountService.signup(this.signUpForm.value).subscribe((_response) => {
             this.isLoading = false;
 
