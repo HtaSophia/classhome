@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup } from '@angular/forms';
-// eslint-disable-next-line import/no-unresolved
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
     selector: 'app-forgot-password',
@@ -10,9 +11,24 @@ import { FormGroup } from '@angular/forms';
 export class ForgotPasswordComponent implements OnInit {
     public forgotPasswordForm: FormGroup;
 
+    constructor(
+        private readonly formBuilder: FormBuilder,
+        private readonly router: Router,
+        private readonly toaster: ToastrService,
+    ) {}
+
     public ngOnInit(): void {
         this.createForm();
     }
 
-    private createForm(): void {}
+    public onSubmit(): void {
+        this.toaster.success('Email enviado!');
+        void this.router.navigate(['signin']);
+    }
+
+    private createForm(): void {
+        this.forgotPasswordForm = this.formBuilder.group({
+            email: ['', Validators.compose([Validators.required, Validators.email])],
+        });
+    }
 }
