@@ -1,6 +1,7 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 import { SubSink } from 'subsink';
 import { AccountService } from '../../account/account.service';
 
@@ -20,6 +21,7 @@ export class SignInComponent implements OnInit, OnDestroy {
         private readonly formBuilder: FormBuilder,
         private readonly router: Router,
         private readonly accountService: AccountService,
+        private readonly toaster: ToastrService,
     ) {}
 
     public ngOnInit(): void {
@@ -33,11 +35,16 @@ export class SignInComponent implements OnInit, OnDestroy {
     public onSubmit(): void {
         this.isLoading = true;
 
-        this.subscriptions.sink = this.accountService.signin(this.signInForm.value).subscribe((_response) => {
-            this.isLoading = false;
-
-            void this.router.navigate(['dashboard']);
-        });
+        this.subscriptions.sink = this.accountService.signin(this.signInForm.value).subscribe(
+            (_response) => {
+                this.isLoading = false;
+                void this.router.navigate(['dashboard']);
+            },
+            (_error) => {
+                this.isLoading = false;
+                this.toaster.error('Email ou Senha incorreta', 'Error');
+            },
+        );
     }
 
     private createForm(): void {
