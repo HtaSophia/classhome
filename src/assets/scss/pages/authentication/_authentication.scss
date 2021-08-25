@@ -2,12 +2,13 @@
     min-height: 100vh;
     position: relative;
     background: url("../../../images/signin-background.jpg") no-repeat center center;
+    background-size: 100%;
 
     .auth-box {
         max-width: 400px;
         padding: 20px;
         background: white;
-        box-shadow: 1px 0px 20px rgba(0, 0, 0, 0.08);
+        box-shadow: 1px 0px 20px rgba(0, 0, 0, 0.8);
         border-radius: 5px;
 
         .auth-footer {
@@ -25,6 +26,7 @@
                     color: #0ca78a;
                 }
             }
+
         }
 
     }
