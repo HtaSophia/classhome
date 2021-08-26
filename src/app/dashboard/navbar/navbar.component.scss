@@ -3,6 +3,7 @@
     .container-fluid{
 
         .navbar-brand{
+
             color: rgb(38, 143, 228);
             font-size: 26px;
             margin-left: -50% -50%;
@@ -11,17 +12,15 @@
 
         }
         .btnCriar{
-            position: absolute;
+            margin: 0;
+            position: fixed;
             left: 15%;
-        }
-        .btnExcluir{
-            position: absolute;
-            left: 25%;
-
         }
 
 
     }
+
+
 
 }
 
