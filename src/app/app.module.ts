@@ -9,6 +9,7 @@ import { CommonModule } from '@angular/common';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { AuthModule } from './auth/auth.module';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
     declarations: [AppComponent],
@@ -23,6 +24,7 @@ import { AuthModule } from './auth/auth.module';
         RouterModule,
         AppRoutingModule,
         AuthModule,
+        NgbModule,
     ],
     providers: [],
     bootstrap: [AppComponent],
