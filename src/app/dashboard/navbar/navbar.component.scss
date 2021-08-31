@@ -1,26 +1,28 @@
-.navbar{
+.navbar {
+    padding: 15px;
+    box-shadow: 1px 0px 20px rgba(0, 0, 0, 0.08);
 
-    .container-fluid{
+    button {
+        border-radius: 50%;
 
-        .navbar-brand{
-
-            color: rgb(38, 143, 228);
-            font-size: 26px;
-            margin-left: -50% -50%;
-            padding: 10px 20px;
-
-
+        &:hover {
+            background-color: gainsboro;
         }
-        .btnCriar{
-            margin: 0;
-            position: fixed;
-            left: 15%;
-        }
-
-
     }
 
+    .navbar-brand {
+        font-size: 1.5rem;
+    }
 
+    .create-class {
+        button {
+            padding: 5px 9px;
+        }
+    }
 
+    .btn-user {
+        button {
+            padding: 0;
+        }
+    }
 }
-

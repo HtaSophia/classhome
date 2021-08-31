@@ -1,67 +1,33 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-
+<nav class="navbar">
     <div class="container-fluid">
-      <a class="navbar-brand"><strong>Classhome</strong></a>
+        <span class="navbar-brand">Classhome</span>
 
+        <div class="d-flex">
+            <div class="create-class me-2" *ngIf="user.role === 'professor'">
+                <button type="button" class="btn" (click)="onCreateClassClick()">
+                    <img src="assets/images/plus.png" alt="user" class="rounded-circle" />
+                </button>
+            </div>
 
-        <!-- Button trigger modal -->
-        <div class="btnCriar">
-            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
-                Criar Turma
-            </button>
-        </div>
-
-
-
-        <!-- Modal criar turma -->
-        <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-            <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="staticBackdropLabel">Criar Turma</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <input
-                        type="text"
-                        name="nomeTurma"
-                        id="nomeTurma"
-                        placeholder="Nome"
-                        required
-
+            <div class="btn-user">
+                <div class="dropdown dropstart">
+                    <button
+                        type="button"
+                        class="btn"
+                        id="dropdownMenuButton"
+                        data-bs-toggle="dropdown"
+                        aria-expanded="false"
                     >
-                    <div class="mt-2"></div>
-                    <label for="descricao">Descrição da turma</label>
-                    <textarea rows="6" style="width: 26em" id="descricao" name="descricao"></textarea>
+                        <img src="assets/icons/user.svg" alt="user" class="rounded-circle" width="35" />
+                    </button>
 
-                </div>
-                <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
-                <button type="button" class="btn btn-primary">Concluir</button>
+                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                        <li><a class="dropdown-item" [routerLink]="['.']">Turmas</a></li>
+                        <li><hr class="dropdown-divider" /></li>
+                        <li><a class="dropdown-item" [routerLink]="['.']">Sair</a></li>
+                    </ul>
                 </div>
             </div>
-            </div>
-        </div>
-
-    </div>
-
-
-
-    <div class="btn-user">
-        <div class="btn-group dropstart" >
-            <button type="button" class="btn btn-primary fas fa-user"
-                    data-bs-toggle="dropdown" aria-expanded="false" style="margin-right: 10px;">
-
-            </button>
-            <ul class="dropdown-menu">
-            <ul id="lista"> </ul>
-            <li><hr class="dropdown-divider"></li>
-            <li><a class="dropdown-item" href="#">Sair</a></li>
-            </ul>
         </div>
     </div>
-
 </nav>
-
-
-

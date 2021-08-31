@@ -1,8 +1,10 @@
-/* eslint-disable eslint-comments/disable-enable-pair */
-/* eslint-disable @typescript-eslint/explicit-member-accessibility */
-/* eslint-disable eslint-comments/no-duplicate-disable */
-/* eslint-disable @typescript-eslint/no-useless-constructor */
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { ClassFormModalComponent } from '../../class/class-form-modal/class-form-modal.component';
+import { AuthService } from '../../auth/auth.service';
+import { ModalService } from '../../shared/services/modal.service';
+import { Account } from '../../account/account';
+import { ClassRequest } from '../../class/types/class-request';
 
 @Component({
     selector: 'app-navbar',
@@ -10,11 +12,26 @@ import { Component, OnInit } from '@angular/core';
     styleUrls: ['./navbar.component.scss'],
 })
 export class NavbarComponent implements OnInit {
-    display: string;
+    public user: Account;
 
-    // eslint-disable-next-line @typescript-eslint/no-useless-constructor
-    // eslint-disable-next-line @typescript-eslint/no-empty-function
-    constructor() {}
+    constructor(
+        private readonly router: Router,
+        private readonly authService: AuthService,
+        private readonly modalService: ModalService,
+    ) {}
 
-    ngOnInit(): void {}
+    public ngOnInit(): void {
+        this.user = this.authService.user;
+    }
+
+    public onCreateClassClick(): void {
+        this.modalService
+            .showModal(ClassFormModalComponent as Component, { size: 'md' })
+            .subscribe((_classDto: ClassRequest) => {});
+    }
+
+    public onLogoutClick(): void {
+        this.authService.clearStorage();
+        void this.router.navigate(['signin']);
+    }
 }
