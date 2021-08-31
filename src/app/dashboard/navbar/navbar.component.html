@@ -1,8 +1,27 @@
 <nav class="navbar">
     <div class="container-fluid">
-        <span class="navbar-brand">Classhome</span>
+        <div class="d-flex align-items-center">
+            <div class="dropdown">
+                <button
+                    type="button"
+                    class="btn"
+                    id="dropdownMenuButton"
+                    data-bs-toggle="dropdown"
+                    aria-expanded="false"
+                >
+                    <img src="assets/images/menu.png" alt="menu" />
+                </button>
 
-        <div class="d-flex">
+                <ul class="dropdown-menu dropend" aria-labelledby="dropdownMenuButton">
+                    <li><hr class="dropdown-divider" /></li>
+                    <li><a class="dropdown-item" [routerLink]="['.']">Turmas</a></li>
+                </ul>
+            </div>
+
+            <span class="navbar-brand">Classhome</span>
+        </div>
+
+        <div class="d-flex right-group">
             <div class="create-class me-2" *ngIf="user?.role === 'professor'">
                 <button type="button" class="btn" (click)="onCreateClassClick()">
                     <img src="assets/images/plus.png" alt="user" class="rounded-circle" />
@@ -10,24 +29,22 @@
             </div>
 
             <div class="btn-user">
-                <div class="dropdown dropstart">
+                <div class="dropdown">
                     <button
                         type="button"
                         class="btn"
-                        id="dropdownMenuButton"
+                        id="dropdownProfileButton"
                         data-bs-toggle="dropdown"
                         aria-expanded="false"
                     >
                         <img src="assets/icons/user.svg" alt="user" class="rounded-circle" width="35" />
                     </button>
 
-                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownProfileButton">
                         <li class="d-flex flex-column align-items-center">
                             <span>{{ user?.username }}</span>
                             <span>{{ user?.email }}</span>
                         </li>
-                        <li><hr class="dropdown-divider" /></li>
-                        <li><a class="dropdown-item" [routerLink]="['.']">Turmas</a></li>
                         <li><hr class="dropdown-divider" /></li>
                         <li><a class="dropdown-item" [routerLink]="['.']">Sair</a></li>
                     </ul>
