@@ -6,10 +6,11 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
 import { CommonModule } from '@angular/common';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { AuthModule } from './auth/auth.module';
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { ClassModule } from './class/class.module';
 
 @NgModule({
     declarations: [AppComponent],
@@ -22,9 +23,10 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
         FormsModule,
         ReactiveFormsModule,
         RouterModule,
+        NgbModule,
         AppRoutingModule,
         AuthModule,
-        NgbModule,
+        ClassModule,
     ],
     providers: [],
     bootstrap: [AppComponent],
