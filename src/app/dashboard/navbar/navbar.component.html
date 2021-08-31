@@ -3,7 +3,7 @@
         <span class="navbar-brand">Classhome</span>
 
         <div class="d-flex">
-            <div class="create-class me-2" *ngIf="user.role === 'professor'">
+            <div class="create-class me-2" *ngIf="user?.role === 'professor'">
                 <button type="button" class="btn" (click)="onCreateClassClick()">
                     <img src="assets/images/plus.png" alt="user" class="rounded-circle" />
                 </button>
@@ -22,6 +22,11 @@
                     </button>
 
                     <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                        <li class="d-flex flex-column align-items-center">
+                            <span>{{ user?.username }}</span>
+                            <span>{{ user?.email }}</span>
+                        </li>
+                        <li><hr class="dropdown-divider" /></li>
                         <li><a class="dropdown-item" [routerLink]="['.']">Turmas</a></li>
                         <li><hr class="dropdown-divider" /></li>
                         <li><a class="dropdown-item" [routerLink]="['.']">Sair</a></li>
