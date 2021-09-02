@@ -1,66 +1,78 @@
 <div class="auth-wrapper d-flex no-block justify-content-center align-items-center">
     <div class="auth-box m-3 m-md-0">
-        <div class="auth-header">
-            <div class="text-center mb-3">
-                <h3>Criar Conta</h3>
-            </div>
+        <div class="auth-header text-center">
+            <span><strong>CRIAR CONTA</strong></span>
         </div>
 
-        <form [formGroup]="signUpForm" (ngSubmit)="onSubmit()">
-            <div class="auth-body mt-4 mb-4">
-                <div id="formSignUp">
-                    <div class="input-group mb-2">
-                        <span class="input-group-text"><i class="fas fa-user"></i></span>
+        <form [formGroup]="signUpForm" (ngSubmit)="onSubmit()" class="auth-form">
+            <div class="auth-body mb-4">
+                <div class="row mb-3" [ngClass]="{ 'was-validated': signUpForm.controls.email.touched }">
+                    <label for="email" class="col-sm-4 col-form-label">Nome*</label>
+
+                    <div class="col-sm-8">
                         <input
                             type="username"
                             class="form-control"
                             id="username"
                             formControlName="username"
-                            placeholder="Nome"
+                            placeholder="Informe seu nome"
                             required
                         />
                     </div>
+                </div>
 
-                    <div class="input-group mb-2">
-                        <span class="input-group-text"><i class="far fa-envelope"></i></span>
+                <div class="row mb-3" [ngClass]="{ 'was-validated': signUpForm.controls.email.touched }">
+                    <label for="email" class="col-sm-4 col-form-label">Email*</label>
+
+                    <div class="col-sm-8">
                         <input
                             type="email"
                             class="form-control"
                             id="email"
+                            name="email"
                             formControlName="email"
-                            placeholder="Email"
+                            placeholder="Informe seu email"
                             required
                         />
                     </div>
+                </div>
 
-                    <div class="input-group">
-                        <span class="input-group-text"><i class="fas fa-unlock"></i></span>
+                <div class="row mb-3" [ngClass]="{ 'was-validated': signUpForm.controls.password.touched }">
+                    <label for="email" class="col-sm-4 col-form-label">Senha*</label>
+                    <div class="col-sm-8">
                         <input
                             type="password"
                             class="form-control"
                             id="password"
+                            name="password"
                             formControlName="password"
-                            placeholder="Senha"
+                            placeholder="Informe sua senha*"
                             required
                         />
                     </div>
+                </div>
 
-                    <div class="pt-2 confirmPassword">
-                        <div class="input-group">
-                            <span class="input-group-text"><i class="fas fa-unlock"></i></span>
-                            <input
-                                type="password"
-                                class="form-control"
-                                id="confirmPassword"
-                                formControlName="confirmPassword"
-                                placeholder="Confirme sua senha"
-                                required
-                            />
-                        </div>
+                <div class="row mb-3" [ngClass]="{ 'was-validated': signUpForm.controls.confirmPassword.touched }">
+                    <label for="email" class="col-sm-4 col-form-label">Confirme Senha*</label>
+
+                    <div class="col-sm-8">
+                        <input
+                            type="password"
+                            class="form-control"
+                            id="confirmPassword"
+                            name="confirmPassword"
+                            formControlName="confirmPassword"
+                            placeholder="Confirme sua senha*"
+                            required
+                        />
                     </div>
+                </div>
 
-                    <div class="pt-2 input-group-select">
-                        <select class="form-select" formControlName="role">
+                <div class="row mb-3" [ngClass]="{ 'was-validated': signUpForm.controls.role.touched }">
+                    <label for="email" class="col-sm-4 col-form-label">Cargo*</label>
+
+                    <div class="col-sm-8">
+                        <select class="form-select" id="role" name="role" formControlName="role" required>
                             <option value="" selected>Selecione seu cargo</option>
                             <option value="professor">Professor(a)</option>
                             <option value="student">Aluno(a)</option>
@@ -82,7 +94,7 @@
 
                 <div class="form-group">
                     <span class="pe-1">Já tem conta?</span>
-                    <a class="text-decoration-none" [routerLink]="['/signin']"><b>Entrar</b></a>
+                    <a class="text-decoration-none" [routerLink]="['/signin']">Entrar</a>
                 </div>
             </div>
         </form>
