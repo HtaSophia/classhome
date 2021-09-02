@@ -1,4 +1,3 @@
-/* eslint-disable promise/prefer-await-to-then */
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { DashboardComponent } from './dashboard.component';
@@ -7,6 +6,13 @@ const routes: Routes = [
     {
         path: '',
         component: DashboardComponent,
+        children: [
+            { path: '', redirectTo: 'classes', pathMatch: 'full' },
+            {
+                path: 'classes',
+                loadChildren: async () => (await import('../class/class.module')).ClassModule,
+            },
+        ],
     },
 ];
 
@@ -15,4 +21,3 @@ const routes: Routes = [
     exports: [RouterModule],
 })
 export class DashboardRoutingModule {}
-/* eslint-enable promise/prefer-await-to-then */

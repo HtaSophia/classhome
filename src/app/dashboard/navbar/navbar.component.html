@@ -15,10 +15,13 @@
                 <ul class="dropdown-menu dropend" aria-labelledby="dropdownMenuButton">
                     <li><hr class="dropdown-divider" /></li>
                     <li><a class="dropdown-item" [routerLink]="['.']">Turmas</a></li>
+                    <li><hr class="dropdown-divider" /></li>
                 </ul>
             </div>
 
-            <span class="navbar-brand">Classhome</span>
+            <span class="navbar-brand">
+                <img src="assets/images/logo.png" alt="" height="45" />
+            </span>
         </div>
 
         <div class="d-flex right-group">
@@ -46,7 +49,7 @@
                             <span>{{ user?.email }}</span>
                         </li>
                         <li><hr class="dropdown-divider" /></li>
-                        <li><a class="dropdown-item" [routerLink]="['.']">Sair</a></li>
+                        <li><a class="dropdown-item" [routerLink]="['.']" (click)="onLogoutClick()">Sair</a></li>
                     </ul>
                 </div>
             </div>

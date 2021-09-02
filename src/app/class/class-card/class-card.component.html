@@ -1,0 +1,40 @@
+<div class="class-card">
+    <div class="class-header d-flex justify-content-between" [style.background-color]="cardColor">
+        <div class="class-infos d-flex flex-column">
+            <span class="title">{{ class.name }}</span>
+            <small>
+                <span>{{ class.description }}</span>
+            </small>
+            <small>
+                <span>{{ class.professor.username }}</span>
+            </small>
+        </div>
+
+        <div class="btn-dots">
+            <div class="dropdown navbar d-block">
+                <button
+                    type="button"
+                    class="btn dots"
+                    id="dropdownClassButton"
+                    data-bs-toggle="dropdown"
+                    aria-haspopup="true"
+                    aria-expanded="false"
+                >
+                    <img src="assets/images/dots.png" alt="More" />
+                </button>
+
+                <ul class="dropdown-menu" aria-labelledby="dropdownClassButton">
+                    <li><hr class="dropdown-divider" /></li>
+                    <li>
+                        <a class="dropdown-item" [routerLink]="['.']" (click)="onRemoveClassClick()">
+                            {{ isProfessor ? 'Cancelar Turma' : 'Sair da Turma' }}
+                        </a>
+                    </li>
+                    <li><hr class="dropdown-divider" /></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="class-body"></div>
+</div>

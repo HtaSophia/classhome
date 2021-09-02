@@ -1,15 +1,56 @@
 .auth-wrapper {
     min-height: 100vh;
     position: relative;
-    background: url("../../../images/signin-background.jpg") no-repeat center center;
-    background-size: 100%;
+    background: #ebeeef;
 
     .auth-box {
-        max-width: 400px;
-        padding: 20px;
+        width: 35rem;
         background: white;
-        box-shadow: 1px 0px 20px rgba(0, 0, 0, 0.8);
-        border-radius: 5px;
+        border-radius: 10px;
+        overflow: hidden;
+
+        a {
+            color: #00c39f;
+
+            &:hover,
+            &:active {
+                color: #0ca78a;
+            }
+        }
+
+        .auth-header {
+            position: relative;
+            z-index: 1;
+            padding: 50px 15px;
+            background: url("../../../images/auth-background.jpg") no-repeat center center;
+
+            span {
+                color: white;
+                font-size: 30px;
+            }
+
+            &::before {
+                content: "";
+                display: block;
+                position: absolute;
+                z-index: -1;
+                width: 100%;
+                height: 100%;
+                top: 0;
+                left: 0;
+                background-color: rgba(54, 84, 99, 0.7);
+            }
+        }
+
+        .auth-form {
+            padding: 45px 60px 50px 60px;
+
+            input {
+                border: none;
+                border-bottom: 1px solid #ced4da;
+                border-radius: 0px;
+            }
+        }
 
         .auth-footer {
             button {
@@ -17,17 +58,12 @@
                 color: white;
                 background-color: #565c5b;
             }
-
-            a {
-                color: #00c39f;
-
-                &:hover,
-                &:active {
-                    color: #0ca78a;
-                }
-            }
-
         }
+    }
 
+    @media (max-width: 991.98px) {
+        .auth-form {
+            padding: 30px !important;
+        }
     }
 }
