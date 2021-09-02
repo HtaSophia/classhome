@@ -11,7 +11,6 @@ import { ToastrModule } from 'ngx-toastr';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { AuthModule } from './auth/auth.module';
-import { ClassModule } from './class/class.module';
 
 @NgModule({
     declarations: [AppComponent],
@@ -23,6 +22,10 @@ import { ClassModule } from './class/class.module';
         HttpClientModule,
         FormsModule,
         ReactiveFormsModule,
+        ToastrModule.forRoot({
+            positionClass: 'toast-bottom-right',
+            preventDuplicates: true,
+        }),
         RouterModule,
         NgbModule,
         AppRoutingModule,
@@ -31,7 +34,6 @@ import { ClassModule } from './class/class.module';
             preventDuplicates: true,
         }),
         AuthModule,
-        ClassModule,
     ],
     providers: [],
     bootstrap: [AppComponent],
