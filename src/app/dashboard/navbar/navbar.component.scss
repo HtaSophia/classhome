@@ -1,0 +1,30 @@
+.navbar {
+    padding: 15px;
+    box-shadow: 1px 0px 20px rgba(0, 0, 0, 0.09);
+
+    .navbar-brand {
+        font-size: 1.5rem;
+    }
+
+    .right-group {
+        button {
+            border-radius: 50%;
+
+            &:hover {
+                background-color: gainsboro;
+            }
+        }
+
+        .create-class {
+            button {
+                padding: 5px 9px;
+            }
+        }
+
+        .btn-user {
+            button {
+                padding: 0;
+            }
+        }
+    }
+}

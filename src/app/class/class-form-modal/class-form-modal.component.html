@@ -1,0 +1,45 @@
+<div class="class-form-modal p-3">
+    <div class="close-button float-end">
+        <button type="button" class="btn-close" (click)="closeModal()"></button>
+    </div>
+
+    <form [formGroup]="classForm" (ngSubmit)="onSubmit()">
+        <div class="modal-header justify-content-center">
+            <h4 class="modal-title">Criar Turma</h4>
+        </div>
+
+        <div class="modal-body">
+            <div class="mb-3" [ngClass]="{ 'was-validated': classForm.controls.name.touched }">
+                <small><label for="name" class="form-label">Nome da Turma*</label></small>
+                <input
+                    type="text"
+                    class="form-control"
+                    id="name"
+                    name="name"
+                    formControlName="name"
+                    placeholder="Nome"
+                    required
+                />
+                <div class="invalid-feedback">Please choose a username.</div>
+            </div>
+
+            <div class="mb-3" [ngClass]="{ 'was-validated': classForm.controls.description.touched }">
+                <small><label for="description" class="form-label">Descrição da Turma</label></small>
+                <textarea
+                    class="form-control"
+                    rows="3"
+                    id="description"
+                    name="description"
+                    formControlName="description"
+                    placeholder="Descrição"
+                    maxlength="120"
+                ></textarea>
+            </div>
+        </div>
+
+        <div class="modal-footer d-flex justify-content-between">
+            <button type="button" class="btn btn-danger">CANCELAR</button>
+            <button type="submit" class="btn btn-success" [disabled]="classForm.invalid">CRIAR</button>
+        </div>
+    </form>
+</div>
