@@ -1,0 +1,9 @@
+<div class="class-list">
+    <div class="class-card" *ngFor="let class of classes">
+        <app-class-card
+            [class]="class"
+            [isProfessor]="role === 'professor'"
+            (removeClass)="onRemoveClassClick($event)"
+        ></app-class-card>
+    </div>
+</div>
