@@ -5,6 +5,7 @@ import { ForgotPasswordComponent } from './auth/forgot-password/forgot-password.
 import { SignInComponent } from './auth/sign-in/sign-in.component';
 import { SignUpComponent } from './auth/sign-up/sign-up.component';
 import { NavbarComponent } from './dashboard/navbar/navbar.component';
+import { MuralComponent } from './mural/mural/mural.component';
 
 const routes: Routes = [
     { path: '', redirectTo: '/signin', pathMatch: 'full' },
@@ -12,6 +13,7 @@ const routes: Routes = [
     { path: 'signup', component: SignUpComponent },
     { path: 'forgot-password', component: ForgotPasswordComponent },
     { path: 'navbar', component: NavbarComponent },
+    { path: 'mural', component: MuralComponent },
     {
         path: 'dashboard',
         canActivate: [AuthGuard],
