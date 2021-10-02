@@ -1,0 +1,21 @@
+.chat {
+    .messages-count {
+        img {
+            opacity: 0.5;
+        }
+    }
+
+    .messages {
+        .message-infos {
+            .owner-info {
+                span {
+                    color: #3c4043;
+
+                    small {
+                        color: gray;
+                    }
+                }
+            }
+        }
+    }
+}
