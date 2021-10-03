@@ -11,6 +11,7 @@ import { ToastrModule } from 'ngx-toastr';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { AuthModule } from './auth/auth.module';
+import { SharedModule } from './shared/shared.module';
 
 @NgModule({
     declarations: [AppComponent],
@@ -33,6 +34,7 @@ import { AuthModule } from './auth/auth.module';
             positionClass: 'toast-bottom-right',
             preventDuplicates: true,
         }),
+        SharedModule,
         AuthModule,
     ],
     providers: [],

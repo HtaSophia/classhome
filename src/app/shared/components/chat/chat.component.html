@@ -1,0 +1,34 @@
+<div class="chat">
+    <div class="messages-count d-flex align-items-center">
+        <img class="me-2" src="assets/images/users.png" alt="Users icon" />
+        <span>
+            <small>
+                {{ chat.messages.length }}
+                {{ chat.messages.length > 1 ? 'comentários para a turma' : 'comentário para a turma' }}
+            </small>
+        </span>
+    </div>
+
+    <div class="messages mt-4">
+        <div class="message d-flex mb-3" *ngFor="let messageInfo of chat.messages">
+            <div class="user-avatar mt-1 me-3">
+                <img src="assets/icons/user.svg" alt="user" class="rounded-circle" width="30" />
+            </div>
+
+            <div class="message-infos">
+                <div class="owner-info">
+                    <span>
+                        <strong>{{ messageInfo.owner.username }}</strong>
+                    </span>
+                    <span class="ms-2">
+                        <small>{{ messageInfo.date | date: 'dd/M/yy H:mm ' }}</small>
+                    </span>
+                </div>
+
+                <div class="message-text">
+                    <span>{{ messageInfo.message }}</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
