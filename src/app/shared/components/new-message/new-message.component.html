@@ -1,0 +1,16 @@
+<div class="new-message d-flex">
+    <img src="assets/icons/user.svg" alt="user" class="rounded-circle me-3" width="30" />
+
+    <div class="message-input w-100">
+        <input
+            class="form-control"
+            type="text"
+            id="message"
+            name="message"
+            [(ngModel)]="message"
+            placeholder="Adicionar comentário para a turma..."
+            (keyup.enter)="onSendMessage()"
+        />
+        <img src="assets/images/send.png" alt="send message" (click)="onSendMessage()" />
+    </div>
+</div>
