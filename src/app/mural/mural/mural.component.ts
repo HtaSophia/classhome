@@ -4,8 +4,7 @@ import { switchMap } from 'rxjs/operators';
 import { of } from 'rxjs';
 import { SubSink } from 'subsink';
 import { ToastrService } from 'ngx-toastr';
-// eslint-disable-next-line import/no-unresolved
-import { Class } from 'src/app/class/types/class';
+import { Class } from '../../class/types/class';
 import { ClassService } from '../../class/class.service';
 import { getUndefinedValue } from '../../shared/utils/types-helper';
 import { ClassFormModalComponent } from '../../class/class-form-modal/class-form-modal.component';
