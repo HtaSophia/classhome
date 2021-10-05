@@ -38,7 +38,7 @@ export class SignInComponent implements OnInit, OnDestroy {
         this.subscriptions.sink = this.accountService.signin(this.signInForm.value).subscribe(
             (_response) => {
                 this.isLoading = false;
-                void this.router.navigate(['dashboard']);
+                void this.router.navigate(['classes']);
             },
             (_error) => {
                 this.isLoading = false;

@@ -1,12 +1,12 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { Class } from '../types/class';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Class } from '../../types/class';
 
 @Component({
     selector: 'app-class-list',
     templateUrl: './class-list.component.html',
     styleUrls: ['./class-list.component.scss'],
 })
-export class ClassListComponent implements OnInit {
+export class ClassListComponent {
     @Input()
     public classes: Class[];
 
@@ -16,7 +16,12 @@ export class ClassListComponent implements OnInit {
     @Output()
     public removeClass = new EventEmitter<string>();
 
-    public ngOnInit(): void {}
+    @Output()
+    public classCardClickEvent = new EventEmitter<string>();
+
+    public onCardClick(classId: string): void {
+        this.classCardClickEvent.emit(classId);
+    }
 
     public onRemoveClassClick(classId: string): void {
         this.removeClass.emit(classId);
