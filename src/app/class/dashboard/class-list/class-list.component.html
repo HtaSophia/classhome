@@ -4,6 +4,7 @@
             [class]="class"
             [isProfessor]="role === 'professor'"
             (removeClass)="onRemoveClassClick($event)"
+            (classCardClickEvent)="onCardClick($event)"
         ></app-class-card>
     </div>
 </div>

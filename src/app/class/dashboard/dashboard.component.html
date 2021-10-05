@@ -1,0 +1,12 @@
+<div class="main-wrapper">
+    <app-navbar mode="class-list" (createClassEvent)="onCreateClassClick()"></app-navbar>
+
+    <div class="page-wrapper container-fluid p-4">
+        <app-class-list
+            [classes]="classes"
+            [role]="user?.role"
+            (removeClass)="onRemoveClassClick($event)"
+            (classCardClickEvent)="onClassCardClick($event)"
+        ></app-class-list>
+    </div>
+</div>

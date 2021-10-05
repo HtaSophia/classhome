@@ -1,19 +1,24 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
+import { ToastrService } from 'ngx-toastr';
 import { of } from 'rxjs';
 import { switchMap } from 'rxjs/operators';
 import { SubSink } from 'subsink';
-import { ToastrService } from 'ngx-toastr';
-import { Account } from '../account/account';
-import { AuthService } from '../auth/auth.service';
-import { ClassService } from './class.service';
-import { Class } from './types/class';
+import { Router } from '@angular/router';
+import { ModalService } from '../../shared/services/modal.service';
+import { getUndefinedValue } from '../../shared/utils/types-helper';
+import { Account } from '../../account/account';
+import { AuthService } from '../../auth/auth.service';
+import { ClassService } from '../class.service';
+import { Class } from '../types/class';
+import { ClassRequest } from '../types/class-request';
+import { ClassFormModalComponent } from './class-form-modal/class-form-modal.component';
 
 @Component({
-    selector: 'app-class',
-    templateUrl: './class.component.html',
-    styleUrls: ['./class.component.scss'],
+    selector: 'app-dashboard',
+    templateUrl: './dashboard.component.html',
+    styleUrls: ['./dashboard.component.scss'],
 })
-export class ClassComponent implements OnInit, OnDestroy {
+export class DashboardComponent implements OnInit, OnDestroy {
     public classes: Class[] = [];
 
     public user: Account;
@@ -21,8 +26,10 @@ export class ClassComponent implements OnInit, OnDestroy {
     private subscriptions = new SubSink();
 
     constructor(
+        private readonly router: Router,
         private readonly authService: AuthService,
         private readonly classService: ClassService,
+        private readonly modalService: ModalService,
         private readonly toaster: ToastrService,
     ) {}
 
@@ -43,6 +50,30 @@ export class ClassComponent implements OnInit, OnDestroy {
 
     public ngOnDestroy(): void {
         this.subscriptions.unsubscribe();
+    }
+
+    public onCreateClassClick(): void {
+        this.subscriptions.sink = this.modalService
+            .showModal(ClassFormModalComponent as Component, { size: 'md' })
+            .pipe(
+                switchMap((classDto: ClassRequest) => {
+                    if (classDto) {
+                        return this.classService.create({ ...classDto, professor: this.user._id });
+                    }
+
+                    return of(getUndefinedValue());
+                }),
+            )
+            .subscribe(
+                (_result) => {},
+                (error) => {
+                    this.toaster.error(error);
+                },
+            );
+    }
+
+    public onClassCardClick(classId: string): void {
+        void this.router.navigate(['classes', classId, 'mural']);
     }
 
     public onRemoveClassClick(classId: string): void {

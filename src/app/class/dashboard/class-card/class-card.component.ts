@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { Class } from '../types/class';
+import { Class } from '../../types/class';
 
 @Component({
     selector: 'app-class-card',
@@ -16,10 +16,17 @@ export class ClassCardComponent implements OnInit {
     @Output()
     public removeClass = new EventEmitter<string>();
 
+    @Output()
+    public classCardClickEvent = new EventEmitter<string>();
+
     public cardColor: string;
 
     public ngOnInit(): void {
         this.cardColor = this.getRandomColor();
+    }
+
+    public onCardClick(): void {
+        this.classCardClickEvent.emit(this.class._id);
     }
 
     public onRemoveClassClick(): void {

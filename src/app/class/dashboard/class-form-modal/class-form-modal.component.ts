@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
-import { ClassRequest } from '../types/class-request';
+import { ClassRequest } from '../../types/class-request';
 
 @Component({
     selector: 'app-class-form-modal',

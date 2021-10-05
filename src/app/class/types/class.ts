@@ -1,3 +1,4 @@
+import { Notice } from '../../mural/types/notice';
 import { Account } from '../../account/account';
 
 export interface Class {
@@ -6,4 +7,5 @@ export interface Class {
     description: string;
     professor: Account;
     students?: Account[];
+    notices: Notice[];
 }

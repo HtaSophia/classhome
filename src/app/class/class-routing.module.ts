@@ -1,11 +1,15 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { ClassComponent } from './class.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
 
 const routes: Routes = [
     {
         path: '',
-        component: ClassComponent,
+        component: DashboardComponent,
+    },
+    {
+        path: ':id',
+        loadChildren: async () => (await import('./class-details/class-details.module')).ClassDetailsModule,
     },
 ];
 
